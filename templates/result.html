@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroke Prediction Result</title>
+    <style>
+
+        /* Background Image */
+        body
+        {
+        height: 100%;
+        
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        
+        }
+        
+        /* Color */
+        body{
+            font-family: Arial, Helvetica,sans-serif;
+            text-align: center;
+            
+            margin:  auto;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        
+        /* Heading Font */
+        .container-heading{
+            margin-top: 40px;
+            color: blueviolet;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        
+        .heading_font{
+            color: black;
+            font-family: 'Pacifico', cursive;
+            font-size: 50px;
+            font-weight: normal;
+        }
+        
+        .danger{
+            color: red;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .safe{
+            color: green;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        label{
+            text-align: left;
+            font-weight: bold;
+            color: cornflowerblue;
+            width: 100%;
+           
+        }
+        #form2{
+            margin: 0 auto;
+            width: 80%;
+            padding: 20px;
+            border: 1px solid #c0d3ec;
+            background: rgb(172, 247, 255);
+            border-radius: 10px 10px 10px 10px;
+        }
+        input{
+            width: 90%;
+            text-align:left;
+            margin-bottom: 10px;
+            padding-left: 10px;
+            color: #3f3f3f;
+            font-size: 15px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="/">Stroke Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/analysis"> Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/about">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/contact">Contact us</a>
+                    </li>
+
+                </ul>
+
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <form action="{{ url_for('home')}}" method="post">
+            <h2 class='container-heading'>Prediction Result</h2>
+            <hr>
+            <br><br><br>
+
+            <!-- Result -->
+            <div class="results">
+                {% if prediction==1 %}
+                <div class="container" style="width:80%">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <h2><span class='danger'>Oops!</span><br><br>You have STROKE risk.<br><br>Please Consult Doctor.</h2>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <img src="/static/sad.gif" alt="" width="370px">
+                        </div>
+                    </div>
+                    </div>
+                {% elif prediction==0 %}
+                <div class="container" style="width:70%">
+                    
+                <div class="row justify-content-center">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <h1><span class='safe'>Congratulations! </span><br><br>No risk of Stroke.</h1>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <img src="/static/dance.gif" alt="" width="370px">
+                        </div>
+                    </div>
+                </div>
+                    
+                {% endif %}
+            </div>
+        </form>
+
+
+        <form id="form2">
+            <div class="form-group row">
+                <label for="form-group row" class="col-sm-2 col-form-label">Gender</label>
+                <div class="col-sm-10">
+
+                  <input type="text" readonly class="form-control-plaintext" id="disabledTextInput" value="{{gender}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="disabledTextInput" class="col-sm-2 col-form-label">Age</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control-plaintext" id="disabledTextInput" value="{{age}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Hypertension</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{hypertension}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Heart Disease</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{heart_disease}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Ever Married</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ever_married_Yes}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label"> Work Type</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{work}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Residence Type</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{residence}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Avg Glucose Level</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{avg_glucose_level}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">BMI</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{bmi}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Smoking Status</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{smoking}}">
+                </div>
+              </div>
+            
+        </form>
+
+
+
+    </div>
+    <div>
+            <br><br> <br><br><br>
+
+            <p class='footer-description'>© 2023 Monirul Islam & Hafeza Akter</p>
+
+    </div>
+
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>
