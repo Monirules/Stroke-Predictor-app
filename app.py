@@ -16,7 +16,6 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'stroke'
-<<<<<<< HEAD
   
 mysql = MySQL(app)
 
@@ -180,11 +179,8 @@ def analysis():
     
     
     
-<<<<<<< HEAD
+#@app.route('/')
 
-=======
-@app.route('/')
->>>>>>> 5104f09af1e5d353c911a07552d9cab8bd829cb6
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method =="POST":
