@@ -16,10 +16,17 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'stroke'
+<<<<<<< HEAD
   
 mysql = MySQL(app)
 
 @app.route('/')
+=======
+
+mysql = MySQL(app)
+
+# @app.route('/')
+>>>>>>> 5104f09af1e5d353c911a07552d9cab8bd829cb6
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
@@ -172,14 +179,18 @@ def analysis():
 
         prediction = model.predict(feature)
         
-        return render_template('result.html', prediction=prediction, gender=gender, age=age, hypertension=hypertension, heart_disease=heart_disease, ever_married_Yes=ever_married_Yes, work=work, residence=residence, avg_glucose_level=avg_glucose_level, bmi=bmi, smoking=smoking)
-
+        #return render_template('result.html', prediction=prediction, gender=gender, age=age, hypertension=hypertension, heart_disease=heart_disease, ever_married_Yes=ever_married_Yes, work=work, residence=residence, avg_glucose_level=avg_glucose_level, bmi=bmi, smoking=smoking)
+        return render_template("stroke.html")
     else:
         return render_template("stroke.html")
     
     
     
+<<<<<<< HEAD
 
+=======
+@app.route('/')
+>>>>>>> 5104f09af1e5d353c911a07552d9cab8bd829cb6
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method =="POST":
@@ -264,8 +275,8 @@ def home():
 
         prediction = model.predict(feature)
         
-        return render_template('result.html', prediction=prediction, gender=gender, age=age, hypertension=hypertension, heart_disease=heart_disease, ever_married_Yes=ever_married_Yes, work=work, residence=residence, avg_glucose_level=avg_glucose_level, bmi=bmi, smoking=smoking)
-
+        #return render_template('result.html', prediction=prediction, gender=gender, age=age, hypertension=hypertension, heart_disease=heart_disease, ever_married_Yes=ever_married_Yes, work=work, residence=residence, avg_glucose_level=avg_glucose_level, bmi=bmi, smoking=smoking)
+        return render_template("stroke.html")
     else:
         return render_template("index.html")
 
