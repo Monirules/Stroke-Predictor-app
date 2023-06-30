@@ -21,12 +21,6 @@ app.config['MYSQL_DB'] = 'stroke'
 mysql = MySQL(app)
 
 @app.route('/')
-=======
-
-mysql = MySQL(app)
-
-# @app.route('/')
->>>>>>> 5104f09af1e5d353c911a07552d9cab8bd829cb6
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
