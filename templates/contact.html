@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand text-warning" href="/">Stroke Prediction</a>
+            <a class="navbar-brand text-warning" href="/home">Stroke Prediction</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/analysis"> Analysis</a>
@@ -38,6 +38,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/contact">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
                     </li>
 
                 </ul>
@@ -53,11 +56,10 @@
 <section class="mb-4">
 
     <!--Section heading-->
-    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+    <h2 class="h1-responsive font-weight-bold text-center my-4" style="color: #9c4a02">Contact us</h2>
     <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Please do not hesitate to contact us directly. <br> Our team will come back to you within
-        a matter of hours to help you.</p>
-
+    <p class="text-center w-responsive mx-auto mb-5">Please do not hesitate to contact us directly. <br> Our team will come back to you within a matter of hours to help you.</p>
+<hr>
     <div class="row">
 
         <!--Grid column-->
@@ -70,8 +72,9 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
+                            <label for="name" class="">Full Name</label>
                             <input type="text" id="name" name="name" class="form-control">
-                            <label for="name" class="">Your name</label>
+                            
                         </div>
                     </div>
                     <!--Grid column-->
@@ -79,26 +82,28 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
+                            <label for="email" class="">Email</label>
                             <input type="text" id="email" name="email" class="form-control">
-                            <label for="email" class="">Your email</label>
+                            
                         </div>
                     </div>
                     <!--Grid column-->
 
                 </div>
                 <!--Grid row-->
-
+<br>
                 <!--Grid row-->
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
-                            <input type="text" id="subject" name="subject" class="form-control">
                             <label for="subject" class="">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                            
                         </div>
                     </div>
                 </div>
                 <!--Grid row-->
-
+<br>
                 <!--Grid row-->
                 <div class="row">
 
@@ -106,8 +111,9 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
+                            <label for="message">Message</label>
                             <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
+                            
                         </div>
 
                     </div>
@@ -115,7 +121,7 @@
                 <!--Grid row-->
 
             </form>
-
+<br>
             <div class="text-center text-md-left">
                 <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
             </div>
@@ -124,10 +130,10 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-md-3 text-center">
+        <div class="col-md-3 text-center" style="padding-top: 7%; ">
             <ul class="list-unstyled mb-0">
                 <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>San Francisco, CA 94126, USA</p>
+                    <p>Bashundhara R/A, Dhaka</p>
                 </li>
 
                 <li><i class="fas fa-phone mt-4 fa-2x"></i>
